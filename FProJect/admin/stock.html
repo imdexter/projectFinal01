@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="top-header">
+        <header>
+            <h1>Talcioc</h1>
+            <button onclick="location.href='../index.html'" type="button">
+              Home</button>          
+              <button onclick="location.href='./admin.html'" type="button">
+                Admin</button>      
+              <button onclick="location.href='./shopping-cart/cart.html'" type="button">
+                Shopping-cart</button>
+      </div>
+      </header>
+  <div id="users">
+
+
+  </div>
+  <script>
+
+    var config = {
+      apiKey: "AIzaSyDkitWyt4i-cGxlDzC1Uh6MrT9UVIfB5VQ",
+      authDomain: "siit-imc.firebaseapp.com",
+      databaseURL: "https://siit-imc.firebaseio.com",
+      projectId: "siit-imc",
+      storageBucket: "siit-imc.appspot.com",
+      messagingSenderId: "459048435439",
+    };
+
+    firebase.initializeApp(config);
+
+    var dbbase = firebase.database();
+    $(document).ready(function () {
+      loadUsers();
+    });
+
+    //document.getElementById('button').addEventListener('click', loadUsers);
+
+
+    function loadUsers() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://siit-imc.firebaseio.com/products.json', true);
+
+      xhr.onload = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+          var users = JSON.parse(this.responseText);
+          var output = '';
+          for (var i in users) {
+            output += '<ul>' +
+              '<li>Name: ' + users[i].user_name + '</li>' +
+              '<li>Stock: ' + users[i].quantity + '</li>' + '<li>Price: ' + users[i].price + '</li>' +
+              '</ul>';
+          }
+
+          document.getElementById('users').innerHTML = output;
+
+        }
+
+      }
+
+      xhr.send();
+
+    }
+  </script>
+
+</body>
+
+</html>

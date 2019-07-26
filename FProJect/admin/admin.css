@@ -1,0 +1,47 @@
+
+  
+   header{
+       background-color: rgb(160, 160, 160);
+   }
+   table{
+    font-size: 15px;
+    color:black;
+    padding-bottom: 5px;
+    width: 100px;
+    background-color: #c7c7c7;
+   }
+   table th{
+       border:1px solid black;
+   }
+ 
+   span{
+       float: right;
+       
+   }
+   #bodyP {
+    width: 800px;
+    margin-left: 10%;
+    margin-right: 10%;
+ }
+
+ .container {
+    font-size: 15px;
+    color:black;
+    width: 500px;
+    background-color: #a5a5a5;
+    margin-bottom: 15px;
+ }
+  
+
+
+ #contactForm {
+    background-color: rgb(161, 161, 161);
+    margin-bottom: 5px;
+    padding: 0%;
+ }
+
+
+   
+       
+   
+   
